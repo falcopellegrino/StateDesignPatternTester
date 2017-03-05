@@ -87,6 +87,7 @@ namespace StateDesignPatternTester
             // Wait for user
             Console.ReadKey();
             #endregion
+
         }
     }
 }
