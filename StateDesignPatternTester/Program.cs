@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Structural =  StateDesignPatternTester.StructuralCode;
+using Structural = StateDesignPatternTester.StructuralCode;
+using Real = StateDesignPatternTester.RealWorldCode;
+using My = StateDesignPatternTester.MyCode;
 
 namespace StateDesignPatternTester
 {
@@ -39,7 +41,7 @@ namespace StateDesignPatternTester
             // Structural code in C#
             // This structural code demonstrates the State pattern which allows an object to behave differently
             // depending on its internal state. The difference in behavior is delegated to objects that represent this state. 
-            
+
             // Setup context in a state
             Structural.Context c = new Structural.Context(new Structural.ConcreteStateA());
 
@@ -49,6 +51,39 @@ namespace StateDesignPatternTester
             c.Request();
             c.Request();
 
+            // Wait for user
+            Console.ReadKey();
+            #endregion
+
+            #region Real-world code in C#
+            // Real-world code in C#
+            // This real-world code demonstrates the State pattern which allows an Account to behave differently depending on its balance. 
+            // The difference in behavior is delegated to State objects called RedState, SilverState and GoldState.
+            // These states represent overdrawn accounts, starter accounts, and accounts in good standing. 
+
+            // Open a new account
+            Real.Account account = new Real.Account("Franco Pellegrino");
+
+            // Apply financial transactions
+            account.Deposit(500.0);
+            account.Deposit(300.0);
+            account.Deposit(550.0);
+            account.PayInterest();
+            account.Withdraw(2000);
+            account.Withdraw(1100);
+
+            // Wait for user
+            Console.ReadKey();
+            #endregion
+
+            #region MyCode
+            My.Dichiarazione dich = new My.Dichiarazione(new My.StatoErrata());
+            
+            dich.Calcola();
+            dich.Modifica();
+            dich.Calcola();
+            dich.Stampa();
+            
             // Wait for user
             Console.ReadKey();
             #endregion
